@@ -15,6 +15,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <UpdateServiceFabricManifestEnabled>true</UpdateServiceFabricManifestEnabled>
     <ServiceFabricServiceManifestPath>PackageRoot\ServiceManifest.xml</ServiceFabricServiceManifestPath>
+    <ApplicationInsightsResourceId>/subscriptions/ae7513ac-36d5-4635-b466-e2230009cc8b/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/sfWebUI</ApplicationInsightsResourceId>
   </PropertyGroup>
   <ItemGroup>
     <DnxInvisibleContent Include="bower.json" />

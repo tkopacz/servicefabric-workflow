@@ -15,24 +15,14 @@ namespace WorkflowStateHost
     /// The IProjName  interface (in a separate DLL that client code can
     /// reference) defines the operations exposed by ProjName objects.
     /// </remarks>
-    internal class WorkflowStateHost : StatefulActor<WorkflowStateHost.ActorState>, IWorkflowStateHost
+    internal class WorkflowStateHost : StatefulActor<WorkflowState>, IWorkflowStateHost
     {
         /// <summary>
         /// This class contains each actor's replicated state.
         /// Each instance of this class is serialized and replicated every time an actor's state is saved.
         /// For more information, see http://aka.ms/servicefabricactorsstateserialization
         /// </summary>
-        [DataContract]
-        internal sealed class ActorState
-        {
-            [DataMember]
-            public int Count { get; set; }
 
-            public override string ToString()
-            {
-                return string.Format(CultureInfo.InvariantCulture, "WorkflowStateHost.ActorState[Count = {0}]", Count);
-            }
-        }
 
         /// <summary>
         /// This method is called whenever an actor is activated.
@@ -43,31 +33,58 @@ namespace WorkflowStateHost
             {
                 // This is the first time this actor has ever been activated.
                 // Set the actor's initial state values.
-                this.State = new ActorState { Count = 0 };
+                this.State = new WorkflowState();
+                this.State.Comments = new List<string>();
+                this.State.CurrentState = eState.eSetName;
             }
 
             ActorEventSource.Current.ActorMessage(this, "State initialized to {0}", this.State);
             return Task.FromResult(true);
         }
 
-
-        [Readonly]
-        Task<int> IWorkflowStateHost.GetCountAsync()
+        Task<int> IWorkflowStateHost.SetName(string text)
         {
-            // For methods that do not change the actor's state,
-            // [Readonly] improves performance by not performing serialization and replication of the actor's state.
-            ActorEventSource.Current.ActorMessage(this, "Getting current count value as {0}", this.State.Count);
-            return Task.FromResult(this.State.Count);
+            State.Name = text;
+            State.CurrentState = eState.eSetSurname;
+            return Task.FromResult(1);
+        }
+        Task<int> IWorkflowStateHost.SetSurname(string text)
+        {
+            State.Surname = text;
+            State.CurrentState = eState.eAddComment;
+            return Task.FromResult(2);
         }
 
-        Task IWorkflowStateHost.SetCountAsync(int count)
+        Task<int> IWorkflowStateHost.AddNewComment(string text)
         {
-            ActorEventSource.Current.ActorMessage(this, "Setting current count of value to {0}", count);
-            this.State.Count = count;  // Update the state
+            State.Comments.Add(text);
+            State.CurrentState = eState.eIsMoreComments;
+            return Task.FromResult(3);
+        }
 
-            return Task.FromResult(true);
-            // When this method returns, the Actor framework automatically
-            // serializes & replicates the actor's state.
+        Task<int> IWorkflowStateHost.IsMoreComments(bool finished)
+        {
+            if (!finished)
+            {
+                State.CurrentState = eState.eAddComment;
+                return Task.FromResult(4);
+            }
+            else
+            {
+                State.CurrentState = eState.eFinished; //End of "workflow"
+                return Task.FromResult(5);
+            }
+        }
+        [Readonly]
+        Task<IList<string>> IWorkflowStateHost.GetAllComments()
+        {
+            return Task.FromResult(this.State.Comments);
+        }
+
+        [Readonly]
+        Task<eState> IWorkflowStateHost.GetCurrentState()
+        {
+            return Task.FromResult(this.State.CurrentState);
         }
     }
 }
