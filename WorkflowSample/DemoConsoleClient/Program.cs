@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WorkflowStateHost.Interfaces;
+//using WorkflowStateHost.Interfaces;
 
 namespace DemoConsoleClient
 {
@@ -16,17 +16,17 @@ namespace DemoConsoleClient
         public static void Main(string[] args)
         {
 
-            var astatictics = ActorProxy.Create<IStatistics>(m_actorIdStatistics, SERVICE_URI);
-            var wf1 = ActorProxy.Create<IWorkflow>(ActorId.NewId(), SERVICE_URI); 
-            var wf2 = ActorProxy.Create<IWorkflow>(ActorId.NewId(), SERVICE_URI);
-            wf1.SetName("A");
-            wf1.SetSurname("B");
-            wf1.AddNewComment("C");
-            wf1.IsMoreComments(true);
-            wf1.AddNewComment("C1");
-            wf1.IsMoreComments(true);
-            wf1.AddNewComment("C2");
-            wf1.IsMoreComments(false);
+            //var astatictics = ActorProxy.Create<IStatistics>(m_actorIdStatistics, SERVICE_URI);
+            //var wf1 = ActorProxy.Create<ITKWorkflow>(ActorId.NewId(), SERVICE_URI); 
+            //var wf2 = ActorProxy.Create<ITKWorkflow>(ActorId.NewId(), SERVICE_URI);
+            //wf1.SetName("A");
+            //wf1.SetSurname("B");
+            //wf1.AddNewComment("C");
+            //wf1.IsMoreComments(true);
+            //wf1.AddNewComment("C1");
+            //wf1.IsMoreComments(true);
+            //wf1.AddNewComment("C2");
+            //wf1.IsMoreComments(false);
 
 
         }

@@ -22,7 +22,7 @@ namespace WorkflowStateHost
                     // The contents of your ServiceManifest.xml and ApplicationManifest.xml files
                     // are automatically populated when you build this project.
                     // For more information, see http://aka.ms/servicefabricactorsplatform
-                    fabricRuntime.RegisterActor<WorkflowStateHost>();
+                    fabricRuntime.RegisterActor<TKWorkflow>();
 
                     Thread.Sleep(Timeout.Infinite);  // Prevents this host process from terminating to keep the service host process running.
                 }

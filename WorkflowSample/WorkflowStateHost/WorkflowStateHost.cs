@@ -16,7 +16,7 @@ namespace WorkflowStateHost
     /// The IProjName  interface (in a separate DLL that client code can
     /// reference) defines the operations exposed by ProjName objects.
     /// </remarks>
-    internal class WorkflowStateHost : StatefulActor<WorkflowState>, IWorkflow
+    internal class TKWorkflow : StatefulActor<TKWorkflowState>, ITKWorkflow
     {
         const string SERVICE_URI = "fabric:/WorkflowSample";
         //static readonly ActorId m_actorIdStatistics = new ActorId(0);
@@ -41,7 +41,7 @@ namespace WorkflowStateHost
             return Task.FromResult(true);
         }
 
-        Task<int> IWorkflow.SetName(string text)
+        Task<int> ITKWorkflow.SetName(string text)
         {
             m_astatictics.IncCalls();
             m_astatictics.IncStarted();
@@ -49,7 +49,7 @@ namespace WorkflowStateHost
             State.CurrentState = eState.eSetSurname;
             return Task.FromResult(1);
         }
-        Task<int> IWorkflow.SetSurname(string text)
+        Task<int> ITKWorkflow.SetSurname(string text)
         {
             m_astatictics.IncCalls();
             State.Surname = text;
@@ -57,7 +57,7 @@ namespace WorkflowStateHost
             return Task.FromResult(2);
         }
 
-        Task<int> IWorkflow.AddNewComment(string text)
+        Task<int> ITKWorkflow.AddNewComment(string text)
         {
             m_astatictics.IncCalls();
             State.Comments.Add(text);
@@ -65,7 +65,7 @@ namespace WorkflowStateHost
             return Task.FromResult(3);
         }
 
-        Task<int> IWorkflow.IsMoreComments(bool finished)
+        Task<int> ITKWorkflow.IsMoreComments(bool finished)
         {
             m_astatictics.IncCalls();
             if (!finished)
@@ -81,14 +81,14 @@ namespace WorkflowStateHost
             }
         }
         [Readonly]
-        Task<IList<string>> IWorkflow.GetAllComments()
+        Task<IList<string>> ITKWorkflow.GetAllComments()
         {
             m_astatictics.IncCalls();
             return Task.FromResult(this.State.Comments);
         }
 
         [Readonly]
-        Task<eState> IWorkflow.GetCurrentState()
+        Task<eState> ITKWorkflow.GetCurrentState()
         {
             m_astatictics.IncCalls();
             return Task.FromResult(this.State.CurrentState);
