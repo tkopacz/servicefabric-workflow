@@ -14,7 +14,7 @@ namespace Statistics.Interfaces
     /// For more information, see http://aka.ms/servicefabricactorsstateserialization
     /// </summary>
     [DataContract]
-    public sealed class ActorState
+    public sealed class StatisticsState
     {
         /// <summary>
         /// Total number of calls to another actors
@@ -43,7 +43,7 @@ namespace Statistics.Interfaces
     /// </summary>
     public interface IStatistics : IActor
     {
-        Task<ActorState> GetCountAsync();
+        Task<StatisticsState> GetCountAsync();
 
         Task IncCalls();
         Task IncStarted();

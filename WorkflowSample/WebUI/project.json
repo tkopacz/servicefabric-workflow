@@ -21,6 +21,7 @@
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final",
     "Microsoft.AspNet.Server.WebListener": "1.0.0-rc1-final",
     "Microsoft.ServiceFabric.Services": "1.4.87-preview",
+    "Microsoft.ServiceFabric.Actors": "1.4.87-preview",
     "Microsoft.ApplicationInsights.AspNet": "1.0.0-beta8"
   },
 
@@ -29,7 +30,12 @@
     },
 
     "frameworks": {
-        "dnx451": { }
+      "dnx451": {
+        "dependencies": {
+          "Statistics.Interfaces": "1.0.0-*",
+          "WorkflowStateHost.Interfaces": "1.0.0-*"
+        }
+      }
     },
 
     "exclude": [

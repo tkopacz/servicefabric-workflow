@@ -42,7 +42,7 @@ namespace WorkflowStateHost.Interfaces
     /// This interface represents the actions a client app can perform on an actor.
     /// It MUST derive from IActor and all methods MUST return a Task.
     /// </summary>
-    public interface IWorkflowStateHost : IActor
+    public interface IWorkflow : IActor
     {
         /// <summary>
         /// Get current state

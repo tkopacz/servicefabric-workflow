@@ -82,6 +82,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Statistics.Interfaces\Statistics.Interfaces.csproj">
+      <Project>{fa89e363-7355-4355-aa64-fa8b222caff1}</Project>
+      <Name>Statistics.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WorkflowStateHost.Interfaces\WorkflowStateHost.Interfaces.csproj">
       <Project>{9A7A817D-A48C-4582-99B8-0DC2877D05E3}</Project>
       <Name>WorkflowStateHost.Interfaces</Name>

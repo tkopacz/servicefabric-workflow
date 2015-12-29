@@ -15,7 +15,7 @@ namespace Statistics
     /// The IProjName  interface (in a separate DLL that client code can
     /// reference) defines the operations exposed by ProjName objects.
     /// </remarks>
-    internal class Statistics : StatefulActor<ActorState>, IStatistics
+    internal class Statistics : StatefulActor<StatisticsState>, IStatistics
     {
 
 
@@ -28,7 +28,7 @@ namespace Statistics
             {
                 // This is the first time this actor has ever been activated.
                 // Set the actor's initial state values.
-                this.State = new ActorState { CountCalls = 0, CountFinished=0, CountStarted=0 };
+                this.State = new StatisticsState { CountCalls = 0, CountFinished=0, CountStarted=0 };
             }
 
             ActorEventSource.Current.ActorMessage(this, "State initialized to {0}", this.State);
@@ -37,7 +37,7 @@ namespace Statistics
 
 
         [Readonly]
-        Task<ActorState> IStatistics.GetCountAsync()
+        Task<StatisticsState> IStatistics.GetCountAsync()
         {
             // For methods that do not change the actor's state,
             // [Readonly] improves performance by not performing serialization and replication of the actor's state.

@@ -5,7 +5,7 @@
          <Extensions>
             <Extension Name="__GeneratedServiceType__" GeneratedId="89fb6a2a-ccec-479d-b34b-dc8badac5186">
                <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
-                  <DefaultService Name="WorkflowStateHostActorService" />
+                  <DefaultService Name="WorkflowActorService" />
                   <ServiceEndpoint Name="WorkflowStateHostActorServiceEndpoint" />
                   <ReplicatorEndpoint Name="WorkflowStateHostActorServiceReplicatorEndpoint" />
                   <ReplicatorConfigSection Name="WorkflowStateHostActorServiceReplicatorConfig" />

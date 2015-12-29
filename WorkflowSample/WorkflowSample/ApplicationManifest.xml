@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="WorkflowSampleType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
-      <Parameter Name="WorkflowStateHostActorService_PartitionCount" DefaultValue="10" />
-      <Parameter Name="WorkflowStateHostActorService_MinReplicaSetSize" DefaultValue="2" />
-      <Parameter Name="WorkflowStateHostActorService_TargetReplicaSetSize" DefaultValue="3" />
+      <Parameter Name="WorkflowActorService_PartitionCount" DefaultValue="10" />
+      <Parameter Name="WorkflowActorService_MinReplicaSetSize" DefaultValue="2" />
+      <Parameter Name="WorkflowActorService_TargetReplicaSetSize" DefaultValue="3" />
       <Parameter Name="StatisticsActorService_PartitionCount" DefaultValue="10" />
       <Parameter Name="StatisticsActorService_MinReplicaSetSize" DefaultValue="2" />
       <Parameter Name="StatisticsActorService_TargetReplicaSetSize" DefaultValue="3" />
@@ -18,9 +18,9 @@
       <ServiceManifestRef ServiceManifestName="StatisticsPkg" ServiceManifestVersion="1.0.0" />
    </ServiceManifestImport>
    <DefaultServices>
-      <Service Name="WorkflowStateHostActorService" GeneratedIdRef="89fb6a2a-ccec-479d-b34b-dc8badac5186">
-         <StatefulService ServiceTypeName="WorkflowStateHostActorServiceType" TargetReplicaSetSize="[WorkflowStateHostActorService_TargetReplicaSetSize]" MinReplicaSetSize="[WorkflowStateHostActorService_MinReplicaSetSize]">
-            <UniformInt64Partition PartitionCount="[WorkflowStateHostActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      <Service Name="WorkflowActorService" GeneratedIdRef="89fb6a2a-ccec-479d-b34b-dc8badac5186">
+         <StatefulService ServiceTypeName="WorkflowStateHostActorServiceType" TargetReplicaSetSize="[WorkflowActorService_TargetReplicaSetSize]" MinReplicaSetSize="[WorkflowActorService_MinReplicaSetSize]">
+            <UniformInt64Partition PartitionCount="[WorkflowActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
          </StatefulService>
       </Service>
       <Service Name="WebUIService">
