@@ -33,7 +33,7 @@ namespace WorkflowStateHost
                 // This is the first time this actor has ever been activated.
                 // Set the actor's initial state values.
                 this.State = new TKWorkflowState();
-                this.State.Comments = new List<string>();
+                this.State.Comments = new Dictionary<long, string>();
                 this.State.CurrentState = eTKState.eSetName;
             }
 
@@ -57,10 +57,13 @@ namespace WorkflowStateHost
             return Task.FromResult(2);
         }
 
-        Task<int> ITKWorkflow.AddNewComment(string text)
+        Task<int> ITKWorkflow.AddNewComment(string text,DateTime timestamp)
         {
             m_astatictics.IncCalls();
-            State.Comments.Add(text);
+            if (!State.Comments.ContainsKey(timestamp.Ticks)) { //Not enought!
+                //What if VM restart HERER <-
+                State.Comments[timestamp.Ticks] = text; //Next "add" will replace value
+            }
             State.CurrentState = eTKState.eIsMoreComments;
             return Task.FromResult(3);
         }
@@ -81,7 +84,7 @@ namespace WorkflowStateHost
             }
         }
         [Readonly]
-        Task<IList<string>> ITKWorkflow.GetAllComments()
+        Task<IDictionary<long, string>> ITKWorkflow.GetAllComments()
         {
             m_astatictics.IncCalls();
             return Task.FromResult(this.State.Comments);

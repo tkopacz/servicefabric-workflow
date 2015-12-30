@@ -5,18 +5,14 @@
   "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
-
   "compilationOptions": {
     "emitEntryPoint": true
   },
-
   "dependencies": {
   },
-
   "commands": {
     "DemoConsoleClient": "DemoConsoleClient"
   },
-
   "frameworks": {
     "dnx451": {
       "dependencies": {
@@ -25,5 +21,8 @@
         "WorkflowStateHost.Interfaces": "1.0.0-*"
       }
     }
+  },
+  "configurations": {
+    "Debug1": { }
   }
 }

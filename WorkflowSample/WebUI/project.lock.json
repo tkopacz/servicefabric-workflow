@@ -1711,6 +1711,16 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "Statistics.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.ServiceFabric": "4.4.87-preview",
+          "Microsoft.ServiceFabric.Actors": "1.4.87-preview",
+          "Microsoft.ServiceFabric.Data": "1.4.87-preview",
+          "Microsoft.ServiceFabric.Services": "1.4.87-preview"
+        }
+      },
       "System.Collections/4.0.0": {
         "type": "package",
         "compile": {
@@ -1933,6 +1943,16 @@
         },
         "runtime": {
           "lib/net45/_._": {}
+        }
+      },
+      "WorkflowStateHost.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.ServiceFabric": "4.4.87-preview",
+          "Microsoft.ServiceFabric.Actors": "1.4.87-preview",
+          "Microsoft.ServiceFabric.Data": "1.4.87-preview",
+          "Microsoft.ServiceFabric.Services": "1.4.87-preview"
         }
       }
     },
@@ -3648,6 +3668,16 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "Statistics.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.ServiceFabric": "4.4.87-preview",
+          "Microsoft.ServiceFabric.Actors": "1.4.87-preview",
+          "Microsoft.ServiceFabric.Data": "1.4.87-preview",
+          "Microsoft.ServiceFabric.Services": "1.4.87-preview"
+        }
+      },
       "System.Collections/4.0.0": {
         "type": "package",
         "compile": {
@@ -3870,6 +3900,16 @@
         },
         "runtime": {
           "lib/net45/_._": {}
+        }
+      },
+      "WorkflowStateHost.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.ServiceFabric": "4.4.87-preview",
+          "Microsoft.ServiceFabric.Actors": "1.4.87-preview",
+          "Microsoft.ServiceFabric.Data": "1.4.87-preview",
+          "Microsoft.ServiceFabric.Services": "1.4.87-preview"
         }
       }
     },
@@ -5585,6 +5625,16 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "Statistics.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.ServiceFabric": "4.4.87-preview",
+          "Microsoft.ServiceFabric.Actors": "1.4.87-preview",
+          "Microsoft.ServiceFabric.Data": "1.4.87-preview",
+          "Microsoft.ServiceFabric.Services": "1.4.87-preview"
+        }
+      },
       "System.Collections/4.0.0": {
         "type": "package",
         "compile": {
@@ -5808,10 +5858,28 @@
         "runtime": {
           "lib/net45/_._": {}
         }
+      },
+      "WorkflowStateHost.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.ServiceFabric": "4.4.87-preview",
+          "Microsoft.ServiceFabric.Actors": "1.4.87-preview",
+          "Microsoft.ServiceFabric.Data": "1.4.87-preview",
+          "Microsoft.ServiceFabric.Services": "1.4.87-preview"
+        }
       }
     }
   },
   "libraries": {
+    "Statistics.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../wrap/Statistics.Interfaces/project.json"
+    },
+    "WorkflowStateHost.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../wrap/WorkflowStateHost.Interfaces/project.json"
+    },
     "Microsoft.ApplicationInsights/1.1.1-beta": {
       "type": "package",
       "sha512": "aqtQ8KNFMGBFCmU3kkkEM7PlyPFvfh/1uKTxixD+myMzB9EjYeGOf0LvFnpkT1sp3voXfU8MUN+eYets8TutdQ==",
@@ -7987,6 +8055,9 @@
       "Microsoft.ServiceFabric.Actors >= 1.4.87-preview",
       "Microsoft.ApplicationInsights.AspNet >= 1.0.0-beta8"
     ],
-    "DNX,Version=v4.5.1": []
+    "DNX,Version=v4.5.1": [
+      "Statistics.Interfaces >= 1.0.0-*",
+      "WorkflowStateHost.Interfaces >= 1.0.0-*"
+    ]
   }
 }

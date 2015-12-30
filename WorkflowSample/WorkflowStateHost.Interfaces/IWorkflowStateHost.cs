@@ -43,7 +43,7 @@ namespace WorkflowStateHost.Interfaces
         [DataMember]
         public string Surname { get; set; }
         [DataMember]
-        public IList<string> Comments { get; set; }
+        public IDictionary<long,string> Comments { get; set; }
     }
     /// <summary>
     /// This interface represents the actions a client app can perform on an actor.
@@ -63,8 +63,8 @@ namespace WorkflowStateHost.Interfaces
         Task<TKWorkflowState> GetCurrentState();
         Task<int> SetName(string text);
         Task<int> SetSurname(string text);
-        Task<int> AddNewComment(string text);
+        Task<int> AddNewComment(string text, DateTime timeStamp);
         Task<int> IsMoreComments(bool finished);
-        Task<IList<string>> GetAllComments();
+        Task<IDictionary<long, string>> GetAllComments();
     }
 }
