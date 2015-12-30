@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using WorkflowStateHost.Interfaces;
+using WorkflowStateHost.Interfaces;
 
 namespace DemoConsoleClient
 {
@@ -15,18 +15,35 @@ namespace DemoConsoleClient
 
         public static void Main(string[] args)
         {
-
-            //var astatictics = ActorProxy.Create<IStatistics>(m_actorIdStatistics, SERVICE_URI);
-            //var wf1 = ActorProxy.Create<ITKWorkflow>(ActorId.NewId(), SERVICE_URI); 
-            //var wf2 = ActorProxy.Create<ITKWorkflow>(ActorId.NewId(), SERVICE_URI);
-            //wf1.SetName("A");
-            //wf1.SetSurname("B");
-            //wf1.AddNewComment("C");
-            //wf1.IsMoreComments(true);
-            //wf1.AddNewComment("C1");
-            //wf1.IsMoreComments(true);
-            //wf1.AddNewComment("C2");
-            //wf1.IsMoreComments(false);
+            try {
+                var astatictics = ActorProxy.Create<IStatistics>(m_actorIdStatistics, SERVICE_URI);
+                var wf1 = ActorProxy.Create<ITKWorkflow>(ActorId.NewId(), SERVICE_URI);
+                var wf2 = ActorProxy.Create<ITKWorkflow>(ActorId.NewId(), SERVICE_URI);
+                int i;
+                TKWorkflowState state;
+                i = wf1.SetName("A").Result;
+                i = wf1.SetSurname("B").Result;
+                state = wf1.GetCurrentState().Result;
+                i = wf1.AddNewComment("C").Result;
+                state = wf1.GetCurrentState().Result;
+                i = wf1.IsMoreComments(true).Result;
+                state = wf1.GetCurrentState().Result;
+                i = wf1.AddNewComment("C1").Result;
+                state = wf1.GetCurrentState().Result;
+                i = wf1.IsMoreComments(true).Result;
+                state = wf1.GetCurrentState().Result;
+                i = wf1.AddNewComment("C2").Result;
+                state = wf1.GetCurrentState().Result;
+                i = wf1.IsMoreComments(false).Result;
+                state = wf1.GetCurrentState().Result;
+                StatisticsState ss;
+                ss = astatictics.GetCountAsync().Result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            Console.ReadLine();
 
 
         }

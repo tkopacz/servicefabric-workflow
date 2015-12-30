@@ -20,7 +20,9 @@
   "frameworks": {
     "dnx451": {
       "dependencies": {
-        "Microsoft.ServiceFabric.Actors": "1.4.87-preview"
+        "Microsoft.ServiceFabric.Actors": "1.4.87-preview",
+        "Statistics.Interfaces": "1.0.0-*",
+        "WorkflowStateHost.Interfaces": "1.0.0-*"
       }
     }
   }

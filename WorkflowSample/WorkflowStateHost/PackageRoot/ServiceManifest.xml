@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="WorkflowStateHostPkg" Version="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceTypes>
-      <StatefulServiceType ServiceTypeName="WorkflowStateHostActorServiceType" HasPersistedState="true">
+      <StatefulServiceType ServiceTypeName="TKWorkflowActorServiceType" HasPersistedState="true">
          <Extensions>
-            <Extension Name="__GeneratedServiceType__" GeneratedId="89fb6a2a-ccec-479d-b34b-dc8badac5186">
+            <Extension Name="__GeneratedServiceType__" GeneratedId="e7393de0-163c-4678-b28c-3b08899a8c73">
                <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
-                  <DefaultService Name="WorkflowActorService" />
-                  <ServiceEndpoint Name="WorkflowStateHostActorServiceEndpoint" />
-                  <ReplicatorEndpoint Name="WorkflowStateHostActorServiceReplicatorEndpoint" />
-                  <ReplicatorConfigSection Name="WorkflowStateHostActorServiceReplicatorConfig" />
-                  <ReplicatorSecurityConfigSection Name="WorkflowStateHostActorServiceReplicatorSecurityConfig" />
-                  <StoreConfigSection Name="WorkflowStateHostActorServiceLocalStoreConfig" />
+                  <DefaultService Name="TKWorkflowActorService" />
+                  <ServiceEndpoint Name="TKWorkflowActorServiceEndpoint" />
+                  <ReplicatorEndpoint Name="TKWorkflowActorServiceReplicatorEndpoint" />
+                  <ReplicatorConfigSection Name="TKWorkflowActorServiceReplicatorConfig" />
+                  <ReplicatorSecurityConfigSection Name="TKWorkflowActorServiceReplicatorSecurityConfig" />
+                  <StoreConfigSection Name="TKWorkflowActorServiceLocalStoreConfig" />
                </GeneratedNames>
             </Extension>
          </Extensions>
@@ -26,8 +26,8 @@
    <ConfigPackage Name="Config" Version="1.0.0" />
    <Resources>
       <Endpoints>
-         <Endpoint Name="WorkflowStateHostActorServiceEndpoint" />
-         <Endpoint Name="WorkflowStateHostActorServiceReplicatorEndpoint" />
+         <Endpoint Name="TKWorkflowActorServiceEndpoint" />
+         <Endpoint Name="TKWorkflowActorServiceReplicatorEndpoint" />
       </Endpoints>
    </Resources>
 </ServiceManifest>

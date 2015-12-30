@@ -330,9 +330,9 @@
   "projectFileDependencyGroups": {
     "": [],
     "DNX,Version=v4.5.1": [
+      "Microsoft.ServiceFabric.Actors >= 1.4.87-preview",
       "Statistics.Interfaces >= 1.0.0-*",
-      "WorkflowStateHost.Interfaces >= 1.0.0-*",
-      "Microsoft.ServiceFabric.Actors >= 1.4.87-preview"
+      "WorkflowStateHost.Interfaces >= 1.0.0-*"
     ]
   }
 }

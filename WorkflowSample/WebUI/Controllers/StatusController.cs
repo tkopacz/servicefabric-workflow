@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Microsoft.ServiceFabric.Actors;
-using Statistics.Interfaces;
+//using Statistics.Interfaces;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,8 +14,9 @@ namespace WebUI.Controllers
         // GET: /<controller>/
         public async Task<IActionResult> Index()
         {
-            var instance = ActorProxy.Create<IStatistics>(m_actorIdStatistics, SERVICE_URI);
-            return View(await instance.GetCountAsync());
+            //var instance = ActorProxy.Create<IStatistics>(m_actorIdStatistics, SERVICE_URI);
+            //return View(await instance.GetCountAsync());
+            return View(null);
         }
     }
 }

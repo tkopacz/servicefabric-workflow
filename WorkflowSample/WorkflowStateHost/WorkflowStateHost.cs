@@ -19,9 +19,9 @@ namespace WorkflowStateHost
     internal class TKWorkflow : StatefulActor<TKWorkflowState>, ITKWorkflow
     {
         const string SERVICE_URI = "fabric:/WorkflowSample";
-        //static readonly ActorId m_actorIdStatistics = new ActorId(0);
+        static readonly ActorId m_actorIdStatistics = new ActorId(0);
 
-        static IStatistics m_astatictics;// = ActorProxy.Create<IStatistics>(m_actorIdStatistics, SERVICE_URI);
+        static IStatistics m_astatictics = ActorProxy.Create<IStatistics>(m_actorIdStatistics, SERVICE_URI);
 
         /// <summary>
         /// This method is called whenever an actor is activated.
@@ -32,9 +32,9 @@ namespace WorkflowStateHost
             {
                 // This is the first time this actor has ever been activated.
                 // Set the actor's initial state values.
-                this.State = new WorkflowState();
+                this.State = new TKWorkflowState();
                 this.State.Comments = new List<string>();
-                this.State.CurrentState = eState.eSetName;
+                this.State.CurrentState = eTKState.eSetName;
             }
 
             ActorEventSource.Current.ActorMessage(this, "State initialized to {0}", this.State);
@@ -46,14 +46,14 @@ namespace WorkflowStateHost
             m_astatictics.IncCalls();
             m_astatictics.IncStarted();
             State.Name = text;
-            State.CurrentState = eState.eSetSurname;
+            State.CurrentState = eTKState.eSetSurname;
             return Task.FromResult(1);
         }
         Task<int> ITKWorkflow.SetSurname(string text)
         {
             m_astatictics.IncCalls();
             State.Surname = text;
-            State.CurrentState = eState.eAddComment;
+            State.CurrentState = eTKState.eAddComment;
             return Task.FromResult(2);
         }
 
@@ -61,7 +61,7 @@ namespace WorkflowStateHost
         {
             m_astatictics.IncCalls();
             State.Comments.Add(text);
-            State.CurrentState = eState.eIsMoreComments;
+            State.CurrentState = eTKState.eIsMoreComments;
             return Task.FromResult(3);
         }
 
@@ -70,13 +70,13 @@ namespace WorkflowStateHost
             m_astatictics.IncCalls();
             if (!finished)
             {
-                State.CurrentState = eState.eAddComment;
+                State.CurrentState = eTKState.eAddComment;
                 return Task.FromResult(4);
             }
             else
             {
                 m_astatictics.IncFinished();
-                State.CurrentState = eState.eFinished; //End of "workflow"
+                State.CurrentState = eTKState.eFinished; //End of "workflow"
                 return Task.FromResult(5);
             }
         }
@@ -88,10 +88,18 @@ namespace WorkflowStateHost
         }
 
         [Readonly]
-        Task<eState> ITKWorkflow.GetCurrentState()
+        Task<eTKState> ITKWorkflow.GetCurrentStep()
         {
             m_astatictics.IncCalls();
             return Task.FromResult(this.State.CurrentState);
         }
+
+        [Readonly]
+        Task<TKWorkflowState> ITKWorkflow.GetCurrentState()
+        {
+            m_astatictics.IncCalls();
+            return Task.FromResult(this.State);
+        }
+
     }
 }

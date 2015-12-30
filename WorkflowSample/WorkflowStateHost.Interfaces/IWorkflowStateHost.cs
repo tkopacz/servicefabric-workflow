@@ -18,18 +18,25 @@ namespace WorkflowStateHost.Interfaces
     ///                                      => Yes -> eNextComment
     ///     ...
     /// </remarks>
+    [DataContract(Name = "eTKState")]
     public enum eTKState
     {
-        eSetName=0x1,
-        eSetSurname=0x2,
-        eAddComment=0x3,
-        eIsMoreComments=0x4,
-        eFinished=0x5   
+        [EnumMember]
+        eSetName,
+        [EnumMember]
+        eSetSurname,
+        [EnumMember]
+        eAddComment,
+        [EnumMember]
+        eIsMoreComments,
+        [EnumMember]
+        eFinished   
     }
 
     [DataContract]
     public sealed class TKWorkflowState
     {
+        [DataMember]
         public eTKState CurrentState { get; set; }
         [DataMember]
         public string Name { get; set; }
@@ -45,10 +52,15 @@ namespace WorkflowStateHost.Interfaces
     public interface ITKWorkflow : IActor
     {
         /// <summary>
-        /// Get current state
+        /// Get current step (eTKState)
         /// </summary>
         /// <returns></returns>
-        Task<eTKState> GetCurrentState();
+        Task<eTKState> GetCurrentStep();
+        /// <summary>
+        /// Return full state
+        /// </summary>
+        /// <returns></returns>
+        Task<TKWorkflowState> GetCurrentState();
         Task<int> SetName(string text);
         Task<int> SetSurname(string text);
         Task<int> AddNewComment(string text);

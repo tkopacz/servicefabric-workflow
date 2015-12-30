@@ -2,6 +2,6 @@
 <Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/WorkflowSample" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
       <Parameter Name="StatisticsActorService_PartitionCount" Value="1" />
-      <Parameter Name="WorkflowActorService_PartitionCount" Value="1" />
+      <Parameter Name="TKWorkflowActorService_PartitionCount" Value="1" />
    </Parameters>
 </Application>
