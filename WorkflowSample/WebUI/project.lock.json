@@ -12,17 +12,17 @@
           "lib/net45/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.AspNet/1.0.0-beta8": {
+      "Microsoft.ApplicationInsights.AspNet/1.0.0-rc1": {
         "type": "package",
         "dependencies": {
           "Microsoft.ApplicationInsights": "1.1.1-beta",
-          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-beta8",
-          "Microsoft.AspNet.Http.Abstractions": "1.0.0-beta8",
-          "Microsoft.AspNet.Http.Features": "1.0.0-beta8",
-          "Microsoft.AspNet.Mvc": "6.0.0-beta8",
-          "Microsoft.Framework.Configuration": "1.0.0-beta8",
-          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
-          "Microsoft.Framework.TelemetryAdapter": "1.0.0-beta8"
+          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Features": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
+          "Microsoft.Extensions.DiagnosticAdapter": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final"
         },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -1220,6 +1220,28 @@
           "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.DiagnosticAdapter/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+          "System.Diagnostics.DiagnosticSource": "4.0.0-beta-23516"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Collections.Concurrent",
+          "System.Core",
+          "System.Linq",
+          "System.Runtime"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.DiagnosticAdapter.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.DiagnosticAdapter.dll": {}
+        }
+      },
       "Microsoft.Extensions.FileSystemGlobbing/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1459,91 +1481,6 @@
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
-      "Microsoft.Framework.Configuration/1.0.0-beta8": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Framework.Configuration.Abstractions": "1.0.0-beta8"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/Microsoft.Framework.Configuration.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/Microsoft.Framework.Configuration.dll": {}
-        }
-      },
-      "Microsoft.Framework.Configuration.Abstractions/1.0.0-beta8": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/Microsoft.Framework.Configuration.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/Microsoft.Framework.Configuration.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Framework.TelemetryAdapter/1.0.0-beta8": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8",
-          "System.Diagnostics.Tracing.Telemetry": "4.0.0-beta-23409"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Collections.Concurrent",
-          "System.Core",
-          "System.Linq",
-          "System.Runtime"
-        ],
-        "compile": {
-          "lib/net45/Microsoft.Framework.TelemetryAdapter.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Framework.TelemetryAdapter.dll": {}
-        }
-      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1781,19 +1718,6 @@
           "lib/net45/_._": {}
         }
       },
-      "System.Diagnostics.Tracing.Telemetry/4.0.0-beta-23409": {
-        "type": "package",
-        "dependencies": {
-          "System.Runtime": "4.0.0",
-          "System.Threading": "4.0.0"
-        },
-        "compile": {
-          "lib/dotnet/System.Diagnostics.Tracing.Telemetry.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/System.Diagnostics.Tracing.Telemetry.dll": {}
-        }
-      },
       "System.Globalization/4.0.0": {
         "type": "package",
         "compile": {
@@ -1966,17 +1890,17 @@
           "lib/net45/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.AspNet/1.0.0-beta8": {
+      "Microsoft.ApplicationInsights.AspNet/1.0.0-rc1": {
         "type": "package",
         "dependencies": {
           "Microsoft.ApplicationInsights": "1.1.1-beta",
-          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-beta8",
-          "Microsoft.AspNet.Http.Abstractions": "1.0.0-beta8",
-          "Microsoft.AspNet.Http.Features": "1.0.0-beta8",
-          "Microsoft.AspNet.Mvc": "6.0.0-beta8",
-          "Microsoft.Framework.Configuration": "1.0.0-beta8",
-          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
-          "Microsoft.Framework.TelemetryAdapter": "1.0.0-beta8"
+          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Features": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
+          "Microsoft.Extensions.DiagnosticAdapter": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final"
         },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -3177,6 +3101,28 @@
           "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.DiagnosticAdapter/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+          "System.Diagnostics.DiagnosticSource": "4.0.0-beta-23516"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Collections.Concurrent",
+          "System.Core",
+          "System.Linq",
+          "System.Runtime"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.DiagnosticAdapter.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.DiagnosticAdapter.dll": {}
+        }
+      },
       "Microsoft.Extensions.FileSystemGlobbing/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -3416,91 +3362,6 @@
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
-      "Microsoft.Framework.Configuration/1.0.0-beta8": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Framework.Configuration.Abstractions": "1.0.0-beta8"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/Microsoft.Framework.Configuration.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/Microsoft.Framework.Configuration.dll": {}
-        }
-      },
-      "Microsoft.Framework.Configuration.Abstractions/1.0.0-beta8": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/Microsoft.Framework.Configuration.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/Microsoft.Framework.Configuration.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Framework.TelemetryAdapter/1.0.0-beta8": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8",
-          "System.Diagnostics.Tracing.Telemetry": "4.0.0-beta-23409"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Collections.Concurrent",
-          "System.Core",
-          "System.Linq",
-          "System.Runtime"
-        ],
-        "compile": {
-          "lib/net45/Microsoft.Framework.TelemetryAdapter.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Framework.TelemetryAdapter.dll": {}
-        }
-      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -3738,19 +3599,6 @@
           "lib/net45/_._": {}
         }
       },
-      "System.Diagnostics.Tracing.Telemetry/4.0.0-beta-23409": {
-        "type": "package",
-        "dependencies": {
-          "System.Runtime": "4.0.0",
-          "System.Threading": "4.0.0"
-        },
-        "compile": {
-          "lib/dotnet/System.Diagnostics.Tracing.Telemetry.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/System.Diagnostics.Tracing.Telemetry.dll": {}
-        }
-      },
       "System.Globalization/4.0.0": {
         "type": "package",
         "compile": {
@@ -3923,17 +3771,17 @@
           "lib/net45/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.AspNet/1.0.0-beta8": {
+      "Microsoft.ApplicationInsights.AspNet/1.0.0-rc1": {
         "type": "package",
         "dependencies": {
           "Microsoft.ApplicationInsights": "1.1.1-beta",
-          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-beta8",
-          "Microsoft.AspNet.Http.Abstractions": "1.0.0-beta8",
-          "Microsoft.AspNet.Http.Features": "1.0.0-beta8",
-          "Microsoft.AspNet.Mvc": "6.0.0-beta8",
-          "Microsoft.Framework.Configuration": "1.0.0-beta8",
-          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
-          "Microsoft.Framework.TelemetryAdapter": "1.0.0-beta8"
+          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Http.Features": "1.0.0-rc1-final",
+          "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+          "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
+          "Microsoft.Extensions.DiagnosticAdapter": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final"
         },
         "frameworkAssemblies": [
           "Microsoft.CSharp",
@@ -5134,6 +4982,28 @@
           "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.DiagnosticAdapter/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+          "System.Diagnostics.DiagnosticSource": "4.0.0-beta-23516"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Collections.Concurrent",
+          "System.Core",
+          "System.Linq",
+          "System.Runtime"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.DiagnosticAdapter.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.DiagnosticAdapter.dll": {}
+        }
+      },
       "Microsoft.Extensions.FileSystemGlobbing/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -5373,91 +5243,6 @@
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
         }
       },
-      "Microsoft.Framework.Configuration/1.0.0-beta8": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Framework.Configuration.Abstractions": "1.0.0-beta8"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/Microsoft.Framework.Configuration.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/Microsoft.Framework.Configuration.dll": {}
-        }
-      },
-      "Microsoft.Framework.Configuration.Abstractions/1.0.0-beta8": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/Microsoft.Framework.Configuration.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/Microsoft.Framework.Configuration.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Framework.TelemetryAdapter/1.0.0-beta8": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8",
-          "System.Diagnostics.Tracing.Telemetry": "4.0.0-beta-23409"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Collections.Concurrent",
-          "System.Core",
-          "System.Linq",
-          "System.Runtime"
-        ],
-        "compile": {
-          "lib/net45/Microsoft.Framework.TelemetryAdapter.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Framework.TelemetryAdapter.dll": {}
-        }
-      },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -5695,19 +5480,6 @@
           "lib/net45/_._": {}
         }
       },
-      "System.Diagnostics.Tracing.Telemetry/4.0.0-beta-23409": {
-        "type": "package",
-        "dependencies": {
-          "System.Runtime": "4.0.0",
-          "System.Threading": "4.0.0"
-        },
-        "compile": {
-          "lib/dotnet/System.Diagnostics.Tracing.Telemetry.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/System.Diagnostics.Tracing.Telemetry.dll": {}
-        }
-      },
       "System.Globalization/4.0.0": {
         "type": "package",
         "compile": {
@@ -5899,16 +5671,16 @@
         "Microsoft.ApplicationInsights.nuspec"
       ]
     },
-    "Microsoft.ApplicationInsights.AspNet/1.0.0-beta8": {
+    "Microsoft.ApplicationInsights.AspNet/1.0.0-rc1": {
       "type": "package",
-      "sha512": "e4HEb6oh5ofLbpwwjXEhgrp9yRyGpZIqOq3xwqXwBXCH8VLja6fMbHHmVJHOFJ64jydljc4HIN/BIWzsnR+cKA==",
+      "sha512": "cFxg3E6Z9otsuBOKhiLqxb5H/B6wbvjvMfu+v3wG8KEJvZ2ZAzNhAXbxE69baweyWzokj5nsI+9YeSXNWacBHA==",
       "files": [
         "lib/dnx451/Microsoft.ApplicationInsights.AspNet.dll",
         "lib/dnx451/Microsoft.ApplicationInsights.AspNet.xml",
         "lib/dnxcore50/Microsoft.ApplicationInsights.AspNet.dll",
         "lib/dnxcore50/Microsoft.ApplicationInsights.AspNet.xml",
-        "Microsoft.ApplicationInsights.AspNet.1.0.0-beta8.nupkg",
-        "Microsoft.ApplicationInsights.AspNet.1.0.0-beta8.nupkg.sha512",
+        "Microsoft.ApplicationInsights.AspNet.1.0.0-rc1.nupkg",
+        "Microsoft.ApplicationInsights.AspNet.1.0.0-rc1.nupkg.sha512",
         "Microsoft.ApplicationInsights.AspNet.nuspec"
       ]
     },
@@ -6811,6 +6583,20 @@
         "Microsoft.Extensions.DependencyInjection.Abstractions.nuspec"
       ]
     },
+    "Microsoft.Extensions.DiagnosticAdapter/1.0.0-rc1-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "E3gpaMweF1ikFox8xcx4iy8sO/84SlF3eRb0OmRIvWoVqqjfceeG4vsZ+4a4Zo36rCqT8eoTwH0VLZUX8UF3RQ==",
+      "files": [
+        "lib/dotnet5.4/Microsoft.Extensions.DiagnosticAdapter.dll",
+        "lib/dotnet5.4/Microsoft.Extensions.DiagnosticAdapter.xml",
+        "lib/net451/Microsoft.Extensions.DiagnosticAdapter.dll",
+        "lib/net451/Microsoft.Extensions.DiagnosticAdapter.xml",
+        "Microsoft.Extensions.DiagnosticAdapter.1.0.0-rc1-final.nupkg",
+        "Microsoft.Extensions.DiagnosticAdapter.1.0.0-rc1-final.nupkg.sha512",
+        "Microsoft.Extensions.DiagnosticAdapter.nuspec"
+      ]
+    },
     "Microsoft.Extensions.FileSystemGlobbing/1.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -7017,92 +6803,6 @@
         "Microsoft.Extensions.WebEncoders.Core.1.0.0-rc1-final.nupkg",
         "Microsoft.Extensions.WebEncoders.Core.1.0.0-rc1-final.nupkg.sha512",
         "Microsoft.Extensions.WebEncoders.Core.nuspec"
-      ]
-    },
-    "Microsoft.Framework.Configuration/1.0.0-beta8": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "M2Fg4gBigELMjFow/w44eGZe7VICY6naOe8R6jKbtsXpDTKFsfCuXxpZcUfIgI791hs7Ney88IjxZ3XudsgJeg==",
-      "files": [
-        "lib/dnx451/Microsoft.Framework.Configuration.dll",
-        "lib/dnx451/Microsoft.Framework.Configuration.xml",
-        "lib/dnxcore50/Microsoft.Framework.Configuration.dll",
-        "lib/dnxcore50/Microsoft.Framework.Configuration.xml",
-        "lib/dotnet/Microsoft.Framework.Configuration.dll",
-        "lib/dotnet/Microsoft.Framework.Configuration.xml",
-        "lib/net45/Microsoft.Framework.Configuration.dll",
-        "lib/net45/Microsoft.Framework.Configuration.xml",
-        "Microsoft.Framework.Configuration.1.0.0-beta8.nupkg",
-        "Microsoft.Framework.Configuration.1.0.0-beta8.nupkg.sha512",
-        "Microsoft.Framework.Configuration.nuspec"
-      ]
-    },
-    "Microsoft.Framework.Configuration.Abstractions/1.0.0-beta8": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "WH5zC6AkShx6VZzZT37tl0QPROkR6zdffACEIPiDyPyqyf+DtWN5Z6v1q9OD5q6CfAij18EwqWaF1eWtYBigNw==",
-      "files": [
-        "lib/dnx451/Microsoft.Framework.Configuration.Abstractions.dll",
-        "lib/dnx451/Microsoft.Framework.Configuration.Abstractions.xml",
-        "lib/dnxcore50/Microsoft.Framework.Configuration.Abstractions.dll",
-        "lib/dnxcore50/Microsoft.Framework.Configuration.Abstractions.xml",
-        "lib/dotnet/Microsoft.Framework.Configuration.Abstractions.dll",
-        "lib/dotnet/Microsoft.Framework.Configuration.Abstractions.xml",
-        "lib/net45/Microsoft.Framework.Configuration.Abstractions.dll",
-        "lib/net45/Microsoft.Framework.Configuration.Abstractions.xml",
-        "Microsoft.Framework.Configuration.Abstractions.1.0.0-beta8.nupkg",
-        "Microsoft.Framework.Configuration.Abstractions.1.0.0-beta8.nupkg.sha512",
-        "Microsoft.Framework.Configuration.Abstractions.nuspec"
-      ]
-    },
-    "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "7WL9hy+7bYDyBtIrrW5tw57dChBcizjSyuD0p5pVkay+gSseLqvAk72a4KldMmRgH//7t74d/YVrTvLhw83b7w==",
-      "files": [
-        "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll",
-        "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.xml",
-        "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll",
-        "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.xml",
-        "lib/dotnet/Microsoft.Framework.DependencyInjection.Abstractions.dll",
-        "lib/dotnet/Microsoft.Framework.DependencyInjection.Abstractions.xml",
-        "lib/net45/Microsoft.Framework.DependencyInjection.Abstractions.dll",
-        "lib/net45/Microsoft.Framework.DependencyInjection.Abstractions.xml",
-        "Microsoft.Framework.DependencyInjection.Abstractions.1.0.0-beta8.nupkg",
-        "Microsoft.Framework.DependencyInjection.Abstractions.1.0.0-beta8.nupkg.sha512",
-        "Microsoft.Framework.DependencyInjection.Abstractions.nuspec"
-      ]
-    },
-    "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "m0NE8yhLNYlHlXfVRdfkwv+aR1a3oL06jf4sXejQKTnhE3hg6Biy7a3/W19ao6IaSyk640ARxrrt2jBEJzeUjg==",
-      "files": [
-        "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll",
-        "lib/dnx451/Microsoft.Framework.Logging.Abstractions.xml",
-        "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll",
-        "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.xml",
-        "lib/dotnet/Microsoft.Framework.Logging.Abstractions.dll",
-        "lib/dotnet/Microsoft.Framework.Logging.Abstractions.xml",
-        "lib/net45/Microsoft.Framework.Logging.Abstractions.dll",
-        "lib/net45/Microsoft.Framework.Logging.Abstractions.xml",
-        "Microsoft.Framework.Logging.Abstractions.1.0.0-beta8.nupkg",
-        "Microsoft.Framework.Logging.Abstractions.1.0.0-beta8.nupkg.sha512",
-        "Microsoft.Framework.Logging.Abstractions.nuspec"
-      ]
-    },
-    "Microsoft.Framework.TelemetryAdapter/1.0.0-beta8": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "iyshIGZkMUY6ZtgX2IeJgzBf0nZnC4Ik4PUXlEM5REzsgKAKPhq4vWZ/5+4S5LLSpuKB/LxhdHHeYWeQWfjWow==",
-      "files": [
-        "lib/dotnet/Microsoft.Framework.TelemetryAdapter.dll",
-        "lib/dotnet/Microsoft.Framework.TelemetryAdapter.xml",
-        "lib/net45/Microsoft.Framework.TelemetryAdapter.dll",
-        "lib/net45/Microsoft.Framework.TelemetryAdapter.xml",
-        "Microsoft.Framework.TelemetryAdapter.1.0.0-beta8.nupkg",
-        "Microsoft.Framework.TelemetryAdapter.1.0.0-beta8.nupkg.sha512",
-        "Microsoft.Framework.TelemetryAdapter.nuspec"
       ]
     },
     "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
@@ -7413,20 +7113,6 @@
         "System.Diagnostics.Tracing.4.0.0.nupkg",
         "System.Diagnostics.Tracing.4.0.0.nupkg.sha512",
         "System.Diagnostics.Tracing.nuspec"
-      ]
-    },
-    "System.Diagnostics.Tracing.Telemetry/4.0.0-beta-23409": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "h4PaLgc6vGFYiufB6wYUgwnCgn97T414OiF1xJiumQh9rkahU1bOX6KrmRtRyfN/l0eg2CH9uMCz5FDrTo6NDQ==",
-      "files": [
-        "lib/dotnet/System.Diagnostics.Tracing.Telemetry.dll",
-        "lib/dotnet/System.Diagnostics.Tracing.Telemetry.xml",
-        "lib/portable-net45+win8+wp8+wpa81/System.Diagnostics.Tracing.Telemetry.dll",
-        "lib/portable-net45+win8+wp8+wpa81/System.Diagnostics.Tracing.Telemetry.xml",
-        "System.Diagnostics.Tracing.Telemetry.4.0.0-beta-23409.nupkg",
-        "System.Diagnostics.Tracing.Telemetry.4.0.0-beta-23409.nupkg.sha512",
-        "System.Diagnostics.Tracing.Telemetry.nuspec"
       ]
     },
     "System.Globalization/4.0.0": {
@@ -8053,7 +7739,7 @@
       "Microsoft.AspNet.Server.WebListener >= 1.0.0-rc1-final",
       "Microsoft.ServiceFabric.Services >= 1.4.87-preview",
       "Microsoft.ServiceFabric.Actors >= 1.4.87-preview",
-      "Microsoft.ApplicationInsights.AspNet >= 1.0.0-beta8"
+      "Microsoft.ApplicationInsights.AspNet >= 1.0.0-rc1"
     ],
     "DNX,Version=v4.5.1": [
       "Statistics.Interfaces >= 1.0.0-*",

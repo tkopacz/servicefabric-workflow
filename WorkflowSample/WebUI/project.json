@@ -21,10 +21,10 @@
     "Microsoft.AspNet.Server.WebListener": "1.0.0-rc1-final",
     "Microsoft.ServiceFabric.Services": "1.4.87-preview",
     "Microsoft.ServiceFabric.Actors": "1.4.87-preview",
-    "Microsoft.ApplicationInsights.AspNet": "1.0.0-beta8"
+    "Microsoft.ApplicationInsights.AspNet": "1.0.0-rc1"
   },
   "commands": {
-    "web": "Microsoft.AspNet.Hosting --config hosting.ini"
+    "web": "Microsoft.AspNet.Hosting"
   },
   "frameworks": {
     "dnx451": {
@@ -49,5 +49,6 @@
   },
   "configurations": {
     "Debug1": { }
-  }
+  },
+  "userSecretsId": "aspnet5-WebUI-20151231041714"
 }
