@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../TKWorkflow.Interfaces/TKWorkflow.Interfaces.csproj",
+      "bin": {
+        "assembly": "../../TKWorkflow.Interfaces/obj/x64/{configuration}/TKWorkflow.Interfaces.dll",
+        "pdb": "../../TKWorkflow.Interfaces/obj/x64/{configuration}/TKWorkflow.Interfaces.pdb"
+      },
+      "dependencies": {
+        "Microsoft.ServiceFabric": "4.4.87-preview",
+        "Microsoft.ServiceFabric.Actors": "1.4.87-preview",
+        "Microsoft.ServiceFabric.Data": "1.4.87-preview",
+        "Microsoft.ServiceFabric.Services": "1.4.87-preview"
+      }
+    }
+  }
+}
