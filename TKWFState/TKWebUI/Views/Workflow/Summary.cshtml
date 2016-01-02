@@ -1,0 +1,20 @@
+﻿@model TKWorkflow.Interfaces.TKWorkflowState
+@{
+    ViewData["Title"] = "WF - Summary";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <table class="table">
+            <tbody>
+                <tr><td>Name</td><td>@Model.Name</td></tr>
+                <tr><td>Surname</td><td>@Model.Surname</td></tr>
+                <tr><td>CurrentState</td><td>@Model.CurrentState</td></tr>
+                @foreach (var item in Model.Comments)
+                {
+                    <tr><td>Comment - @item.Key</td><td>@item.Value</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -7,6 +7,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.ApplicationInsights;
 
 namespace TKWebUI
 {
@@ -18,6 +19,14 @@ namespace TKWebUI
             var builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .AddEnvironmentVariables();
+            if (env.IsEnvironment("Development"))
+            {
+                builder.AddApplicationInsightsSettings(developerMode: true, instrumentationKey: "3e05a83d-b8f9-45cc-893b-647e6c704d0f");
+            }
+            else {
+                builder.AddApplicationInsightsSettings(developerMode: false, instrumentationKey: "3e05a83d-b8f9-45cc-893b-647e6c704d0f");
+            }
+
             Configuration = builder.Build();
         }
 
@@ -28,6 +37,7 @@ namespace TKWebUI
         {
             // Add framework services.
             services.AddMvc();
+            services.AddApplicationInsightsTelemetry(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +45,10 @@ namespace TKWebUI
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            app.UseApplicationInsightsRequestTelemetry();
+            app.UseApplicationInsightsExceptionTelemetry();
+            app.ApplicationServices.GetService<TelemetryClient>().Context.Properties["Environment"] = env.EnvironmentName;
 
             if (env.IsDevelopment())
             {

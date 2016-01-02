@@ -82,6 +82,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TKStatistics.Interfaces\TKStatistics.Interfaces.csproj">
+      <Project>{a74f449f-6735-4de0-878e-1255f5a029ce}</Project>
+      <Name>TKStatistics.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TKWorkflow.Interfaces\TKWorkflow.Interfaces.csproj">
       <Project>{766CF663-07D2-4489-A4F1-8FE91A345900}</Project>
       <Name>TKWorkflow.Interfaces</Name>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
+using TKStatistics.Interfaces;
 
 namespace TKWorkflow
 {
@@ -15,24 +16,12 @@ namespace TKWorkflow
     /// The IProjName  interface (in a separate DLL that client code can
     /// reference) defines the operations exposed by ProjName objects.
     /// </remarks>
-    internal class TKWorkflow : StatefulActor<TKWorkflow.ActorState>, ITKWorkflow
+    internal class TKWorkflow : StatefulActor<TKWorkflowState>, ITKWorkflow
     {
-        /// <summary>
-        /// This class contains each actor's replicated state.
-        /// Each instance of this class is serialized and replicated every time an actor's state is saved.
-        /// For more information, see http://aka.ms/servicefabricactorsstateserialization
-        /// </summary>
-        [DataContract]
-        internal sealed class ActorState
-        {
-            [DataMember]
-            public int Count { get; set; }
+        const string SERVICE_URI = "fabric:/TKWFState";
+        static readonly ActorId m_actorIdStatistics = new ActorId(0);
 
-            public override string ToString()
-            {
-                return string.Format(CultureInfo.InvariantCulture, "TKWorkflow.ActorState[Count = {0}]", Count);
-            }
-        }
+        static ITKStatistics m_astatictics = ActorProxy.Create<ITKStatistics>(m_actorIdStatistics, SERVICE_URI);
 
         /// <summary>
         /// This method is called whenever an actor is activated.
@@ -43,31 +32,78 @@ namespace TKWorkflow
             {
                 // This is the first time this actor has ever been activated.
                 // Set the actor's initial state values.
-                this.State = new ActorState { Count = 0 };
+                this.State = new TKWorkflowState();
+                this.State.Comments = new Dictionary<long, string>();
+                this.State.CurrentState = eTKState.eSetName;
             }
 
             ActorEventSource.Current.ActorMessage(this, "State initialized to {0}", this.State);
             return Task.FromResult(true);
         }
 
+        Task<int> ITKWorkflow.SetName(string text)
+        {
+            m_astatictics.IncCalls();
+            m_astatictics.IncStarted();
+            State.Name = text;
+            State.CurrentState = eTKState.eSetSurname;
+            return Task.FromResult(1);
+        }
+        Task<int> ITKWorkflow.SetSurname(string text)
+        {
+            m_astatictics.IncCalls();
+            State.Surname = text;
+            State.CurrentState = eTKState.eAddComment;
+            return Task.FromResult(2);
+        }
+
+        Task<int> ITKWorkflow.AddNewComment(string text, DateTime timestamp)
+        {
+            m_astatictics.IncCalls();
+            if (!State.Comments.ContainsKey(timestamp.Ticks))
+            { //Not enought!
+                //What if VM restart HERER <-
+                State.Comments[timestamp.Ticks] = text; //Next "add" will replace value
+            }
+            State.CurrentState = eTKState.eIsMoreComments;
+            return Task.FromResult(3);
+        }
+
+        Task<int> ITKWorkflow.IsMoreComments(bool finished)
+        {
+            m_astatictics.IncCalls();
+            if (!finished)
+            {
+                State.CurrentState = eTKState.eAddComment;
+                return Task.FromResult(4);
+            }
+            else
+            {
+                m_astatictics.IncFinished();
+                State.CurrentState = eTKState.eFinished; //End of "workflow"
+                return Task.FromResult(5);
+            }
+        }
+        [Readonly]
+        Task<IDictionary<long, string>> ITKWorkflow.GetAllComments()
+        {
+            m_astatictics.IncCalls();
+            return Task.FromResult(this.State.Comments);
+        }
 
         [Readonly]
-        Task<int> ITKWorkflow.GetCountAsync()
+        Task<eTKState> ITKWorkflow.GetCurrentStep()
         {
-            // For methods that do not change the actor's state,
-            // [Readonly] improves performance by not performing serialization and replication of the actor's state.
-            ActorEventSource.Current.ActorMessage(this, "Getting current count value as {0}", this.State.Count);
-            return Task.FromResult(this.State.Count);
+            m_astatictics.IncCalls();
+            return Task.FromResult(this.State.CurrentState);
         }
 
-        Task ITKWorkflow.SetCountAsync(int count)
+        [Readonly]
+        Task<TKWorkflowState> ITKWorkflow.GetCurrentState()
         {
-            ActorEventSource.Current.ActorMessage(this, "Setting current count of value to {0}", count);
-            this.State.Count = count;  // Update the state
-
-            return Task.FromResult(true);
-            // When this method returns, the Actor framework automatically
-            // serializes & replicates the actor's state.
+            m_astatictics.IncCalls();
+            return Task.FromResult(this.State);
         }
+
     }
 }

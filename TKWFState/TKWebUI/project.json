@@ -5,6 +5,7 @@
   },
 
   "dependencies": {
+    "Microsoft.ApplicationInsights.AspNet": "1.0.0-rc1",
     "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final",
     "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
     "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
@@ -22,7 +23,7 @@
   },
 
   "commands": {
-    "web": "Microsoft.AspNet.Hosting"
+    "web": "Microsoft.AspNet.Server.Kestrel"
   },
 
   "frameworks": {
