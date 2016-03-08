@@ -7,12 +7,6 @@
       <Parameter Name="TKStatisticsActorService_PartitionCount" DefaultValue="10" />
       <Parameter Name="TKStatisticsActorService_MinReplicaSetSize" DefaultValue="2" />
       <Parameter Name="TKStatisticsActorService_TargetReplicaSetSize" DefaultValue="3" />
-      <Parameter Name="TKStatefull2_MinReplicaSetSize" DefaultValue="2" />
-      <Parameter Name="TKStatefull2_PartitionCount" DefaultValue="1" />
-      <Parameter Name="TKStatefull2_TargetReplicaSetSize" DefaultValue="3" />
-      <Parameter Name="TKStatefull1_MinReplicaSetSize" DefaultValue="2" />
-      <Parameter Name="TKStatefull1_PartitionCount" DefaultValue="1" />
-      <Parameter Name="TKStatefull1_TargetReplicaSetSize" DefaultValue="3" />
       <Parameter Name="TKWebUI_InstanceCount" DefaultValue="1" />
    </Parameters>
    <ServiceManifestImport>
@@ -23,14 +17,6 @@
    </ServiceManifestImport>
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="TKStatisticsPkg" ServiceManifestVersion="1.0.0" />
-   </ServiceManifestImport>
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="TKStatefull2Pkg" ServiceManifestVersion="1.0.0" />
-      <ConfigOverrides />
-   </ServiceManifestImport>
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="TKStatefull1Pkg" ServiceManifestVersion="1.0.0" />
-      <ConfigOverrides />
    </ServiceManifestImport>
    <DefaultServices>
       <Service Name="TKWorkflowActorService" GeneratedIdRef="f8084c5e-b938-407f-b33f-c276c69c3818">
@@ -46,16 +32,6 @@
       <Service Name="TKStatisticsActorService" GeneratedIdRef="4ff4f6e4-0a97-40d0-8173-784c17e38564">
          <StatefulService ServiceTypeName="TKStatisticsActorServiceType" TargetReplicaSetSize="[TKStatisticsActorService_TargetReplicaSetSize]" MinReplicaSetSize="[TKStatisticsActorService_MinReplicaSetSize]">
             <UniformInt64Partition PartitionCount="[TKStatisticsActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-         </StatefulService>
-      </Service>
-      <Service Name="TKStatefull2">
-         <StatefulService ServiceTypeName="TKStatefull2Type" TargetReplicaSetSize="[TKStatefull2_TargetReplicaSetSize]" MinReplicaSetSize="[TKStatefull2_MinReplicaSetSize]">
-            <UniformInt64Partition PartitionCount="[TKStatefull2_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-         </StatefulService>
-      </Service>
-      <Service Name="TKStatefull1">
-         <StatefulService ServiceTypeName="TKStatefull1Type" TargetReplicaSetSize="[TKStatefull1_TargetReplicaSetSize]" MinReplicaSetSize="[TKStatefull1_MinReplicaSetSize]">
-            <UniformInt64Partition PartitionCount="[TKStatefull1_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
          </StatefulService>
       </Service>
    </DefaultServices>

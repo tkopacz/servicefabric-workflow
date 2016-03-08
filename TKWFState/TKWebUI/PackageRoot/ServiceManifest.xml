@@ -24,7 +24,7 @@
    </CodePackage>
    <Resources>
       <Endpoints>
-         <Endpoint Name="TKWebUITypeEndpoint" Protocol="http" Type="Input" Port="8080" />
+         <Endpoint Name="TKWebUITypeEndpoint" Protocol="http" Type="Input" Port="8081" />
       </Endpoints>
    </Resources>
 </ServiceManifest>

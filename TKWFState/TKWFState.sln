@@ -15,10 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TKStatistics", "TKStatistic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TKStatistics.Interfaces", "TKStatistics.Interfaces\TKStatistics.Interfaces.csproj", "{A74F449F-6735-4DE0-878E-1255F5A029CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TKStatefull1", "TKStatefull1\TKStatefull1.csproj", "{CB6FE98C-1A77-49A5-8C0B-10331FC5F27B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TKStatefull2", "TKStatefull2\TKStatefull2.csproj", "{29F16882-D65E-4991-BE50-64F1F6B9061B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,18 +63,6 @@ Global
 		{A74F449F-6735-4DE0-878E-1255F5A029CE}.Release|Any CPU.ActiveCfg = Release|x64
 		{A74F449F-6735-4DE0-878E-1255F5A029CE}.Release|x64.ActiveCfg = Release|x64
 		{A74F449F-6735-4DE0-878E-1255F5A029CE}.Release|x64.Build.0 = Release|x64
-		{CB6FE98C-1A77-49A5-8C0B-10331FC5F27B}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{CB6FE98C-1A77-49A5-8C0B-10331FC5F27B}.Debug|x64.ActiveCfg = Debug|x64
-		{CB6FE98C-1A77-49A5-8C0B-10331FC5F27B}.Debug|x64.Build.0 = Debug|x64
-		{CB6FE98C-1A77-49A5-8C0B-10331FC5F27B}.Release|Any CPU.ActiveCfg = Release|x64
-		{CB6FE98C-1A77-49A5-8C0B-10331FC5F27B}.Release|x64.ActiveCfg = Release|x64
-		{CB6FE98C-1A77-49A5-8C0B-10331FC5F27B}.Release|x64.Build.0 = Release|x64
-		{29F16882-D65E-4991-BE50-64F1F6B9061B}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{29F16882-D65E-4991-BE50-64F1F6B9061B}.Debug|x64.ActiveCfg = Debug|x64
-		{29F16882-D65E-4991-BE50-64F1F6B9061B}.Debug|x64.Build.0 = Debug|x64
-		{29F16882-D65E-4991-BE50-64F1F6B9061B}.Release|Any CPU.ActiveCfg = Release|x64
-		{29F16882-D65E-4991-BE50-64F1F6B9061B}.Release|x64.ActiveCfg = Release|x64
-		{29F16882-D65E-4991-BE50-64F1F6B9061B}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
